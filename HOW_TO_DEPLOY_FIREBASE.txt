@@ -1,0 +1,37 @@
+HOW TO DEPLOY TO FIREBASE HOSTING
+=================================
+
+Since you want to host this on your own Firebase project (mohammed-muaaz-portfolio), you need to use the terminal.
+
+I have already created the configuration files for you (`firebase.json` and `.firebaserc`).
+
+FOLLOW THESE STEPS IN YOUR TERMINAL:
+====================================
+
+STEP 1: INSTALL FIREBASE TOOLS
+------------------------------
+Run this command to install the Firebase CLI:
+npm install -g firebase-tools
+
+(If that fails, try: npm install -g firebase-tools --force)
+
+STEP 2: LOGIN TO FIREBASE
+-------------------------
+Run this command to connect your account:
+firebase login
+
+1. It will ask "Allow Firebase to collect CLI usage and error reporting information?". Type 'Y' or 'N' and press Enter.
+2. It will open your web browser.
+3. Log in with your Google Account ("itzmazua@gmail.com" or whichever owns the project).
+4. Click "Allow".
+
+STEP 3: DEPLOY
+--------------
+Run this command to publish your site:
+firebase deploy
+
+---------------------------------------------------
+SUCCESS!
+It will show you a "Hosting URL" (e.g., https://mohammed-muaaz-portfolio.web.app).
+That is your live website link!
+---------------------------------------------------
