@@ -109,3 +109,35 @@ if (hamburger) {
         navLinks.classList.toggle('active');
     });
 }
+
+// CV Modal Functionality
+const cvModal = document.getElementById('cv-modal');
+const viewCvBtn = document.getElementById('view-cv-btn');
+const closeCvBtn = document.getElementsByClassName('close-cv')[0];
+
+if (viewCvBtn) {
+    viewCvBtn.onclick = function(e) {
+        e.preventDefault();
+        cvModal.style.display = "flex";
+    }
+}
+
+if (closeCvBtn) {
+    closeCvBtn.onclick = function() {
+        cvModal.style.display = "none";
+    }
+}
+
+// Close CV modal on outside click
+window.addEventListener('click', function(event) {
+    if (event.target == cvModal) {
+        cvModal.style.display = "none";
+    }
+});
+
+// Close CV modal on Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape" && cvModal.style.display === "flex") {
+        cvModal.style.display = "none";
+    }
+});

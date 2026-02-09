@@ -730,3 +730,65 @@ footer {
         text-align: center;
     }
 }
+
+/* CV Modal Styles */
+.cv-container {
+    background: #fff;
+    margin: 2.5vh auto;
+    /* Center vertically */
+    padding: 20px;
+    border-radius: 8px;
+    width: 95%;
+    /* 95% width */
+    max-width: none;
+    /* Remove max-width restriction */
+    height: 95vh;
+    /* 95% height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s;
+}
+
+.cv-container iframe {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    margin-bottom: 15px;
+}
+
+.download-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.close-cv {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #355E3B;
+    /* Changed to green for better visibility on white bg */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+.close-cv:hover,
+.close-cv:focus {
+    color: #40826D;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cv-container {
+        width: 100%;
+        margin: 0;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
