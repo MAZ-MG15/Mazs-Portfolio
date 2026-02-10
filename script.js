@@ -116,28 +116,83 @@ const viewCvBtn = document.getElementById('view-cv-btn');
 const closeCvBtn = document.getElementsByClassName('close-cv')[0];
 
 if (viewCvBtn) {
-    viewCvBtn.onclick = function(e) {
+    viewCvBtn.onclick = function (e) {
         e.preventDefault();
         cvModal.style.display = "flex";
     }
 }
 
 if (closeCvBtn) {
-    closeCvBtn.onclick = function() {
+    closeCvBtn.onclick = function () {
         cvModal.style.display = "none";
     }
 }
 
 // Close CV modal on outside click
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     if (event.target == cvModal) {
         cvModal.style.display = "none";
     }
 });
 
 // Close CV modal on Escape key
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === "Escape" && cvModal.style.display === "flex") {
         cvModal.style.display = "none";
     }
 });
+// Portfolio Filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            portfolioItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || filterValue === category) {
+                    item.classList.remove('hide');
+                    item.style.display = 'block'; // Ensure it's visible before opacity transition
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.classList.add('hide');
+                        item.style.display = 'none'; // Hide after transition
+                    }, 500); // Match CSS transition duration
+                }
+            });
+        });
+    });
+}
+
+// Dynamic Hero Parallax Effect
+const heroSection = document.getElementById('hero');
+const shapes = document.querySelectorAll('.bg-shape');
+
+if (heroSection && shapes.length > 0) {
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 20; // Different speed for each shape
+            const xOffset = (window.innerWidth / 2 - e.clientX) / speed;
+            const yOffset = (window.innerHeight / 2 - e.clientY) / speed;
+
+            shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        });
+    });
+}

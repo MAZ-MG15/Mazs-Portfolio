@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 
 <body>
@@ -58,6 +58,15 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
+            <div class="hero-bg-collage">
+                <div class="collage-item"><img src="images/ovh_soneva_fushi.jpg" alt="Background Work"></div>
+                <div class="collage-item"><img src="images/Photography/red_mosque.jpg" alt="Background Work"></div>
+                <div class="collage-item"><img src="images/Viluxur/soneva_jani_retreat.jpg" alt="Background Work"></div>
+                <div class="collage-item"><img src="images/Photography/train_station.jpg" alt="Background Work"></div>
+                <div class="collage-item"><img src="images/ov_wild_coast.jpg" alt="Background Work"></div>
+                <div class="collage-item"><img src="images/Photography/beach_coconut.jpg" alt="Background Work"></div>
+            </div>
+            <div class="hero-overlay"></div>
             <div class="container hero-container fade-in-up">
                 <div class="hero-text">
                     <span class="highlight-text">Hello, I'm</span>
@@ -178,200 +187,183 @@
             </div>
         </section>
 
-        <!-- Portfolio Placeholder Section -->
+        <!-- Portfolio Section -->
         <section id="portfolio" class="section-padding">
             <div class="container">
                 <h2 class="section-title fade-in-up">Selected Works</h2>
-                <!-- OV Holidays Works -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">OV Holidays Works</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_little_griffins.jpg"
-                                alt="Little Griffins - JW Marriott"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_soneva_jani.jpg"
-                                alt="The Den - Soneva Jani"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_soneva_fushi.jpg"
-                                alt="The Den - Soneva Fushi"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_program_rating.jpg"
-                                alt="Top 3 Program Rating"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_top_5_kids.jpg"
-                                alt="Top 5 Kids Clubs in Maldives"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_waldorf_astoria.jpg"
-                                alt="Waldorf Astoria Ithaafushi"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_four_seasons.jpg"
-                                alt="Four Seasons Landaa Giraavaru"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_family_friendly.jpg"
-                                alt="Most Family-Friendly Resorts"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_soneva_fushi_bw.jpg"
-                                alt="Soneva Fushi Family Rhythm"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_big_5_lenses.jpg"
-                                alt="The Big 5 Lenses"></div>
-                        <!-- Batch 3 Items -->
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_hiring_1.jpg"
-                                alt="Hiring Graphic Designer Poster 1"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_hiring_2.jpg"
-                                alt="Hiring Graphic Designer Poster 2"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_eid_celebrate.jpg"
-                                alt="Celebrate Eid by the Ocean"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_eid_answer.jpg"
-                                alt="Eid Maldives Campaign"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ovh_visit_dark.jpg"
-                                alt="Visit OV Holidays"></div>
-                    </div>
+
+                <!-- Filter Buttons -->
+                <div class="portfolio-filter fade-in-up">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ov-holidays">OV Holidays</button>
+                    <button class="filter-btn" data-filter="traveller-club">Traveller Club</button>
+                    <button class="filter-btn" data-filter="muslim-majlis">Muslim Majlis</button>
+                    <button class="filter-btn" data-filter="freelance">Freelance</button>
+                    <button class="filter-btn" data-filter="viluxur">Viluxur</button>
+                    <button class="filter-btn" data-filter="photography">Photography</button>
                 </div>
 
-                <!-- OV Traveller Club Works -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">OV Traveller Club Works</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_uga_chena.jpg"
-                                alt="Uga Chena Huts Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_gal_oya.jpg"
-                                alt="Gal Oya Lodge Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_santani.jpg"
-                                alt="Santani Wellness Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_jetwing.jpg"
-                                alt="Jetwing Vil Uyana Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_wild_coast.jpg"
-                                alt="Wild Coast Tented Lodge Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_joali_being.jpg"
-                                alt="Joali Being Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_gili_lankanfushi.jpg"
-                                alt="Gili Lankanfushi Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_six_senses.jpg"
-                                alt="Six Senses Laamu Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_soneva_fushi.jpg"
-                                alt="Soneva Fushi Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_bill_bensley.jpg"
-                                alt="Bill Bensley Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_christina_ong.jpg"
-                                alt="Christina Ong Poster"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/ov_sonu_shivdasani.jpg"
-                                alt="Sonu Shivdasani Poster"></div>
-                    </div>
-                </div>
+                <div class="portfolio-grid">
+                    <!-- OV Holidays Works -->
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_little_griffins.jpg" alt="Little Griffins - JW Marriott"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_soneva_jani.jpg" alt="The Den - Soneva Jani"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_soneva_fushi.jpg" alt="The Den - Soneva Fushi"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_program_rating.jpg" alt="Top 3 Program Rating"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_top_5_kids.jpg" alt="Top 5 Kids Clubs in Maldives"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_waldorf_astoria.jpg" alt="Waldorf Astoria Ithaafushi"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_four_seasons.jpg" alt="Four Seasons Landaa Giraavaru"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_family_friendly.jpg" alt="Most Family-Friendly Resorts"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_soneva_fushi_bw.jpg" alt="Soneva Fushi Family Rhythm"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_big_5_lenses.jpg" alt="The Big 5 Lenses"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_hiring_1.jpg" alt="Hiring Graphic Designer Poster 1"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_hiring_2.jpg" alt="Hiring Graphic Designer Poster 2"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_eid_celebrate.jpg" alt="Celebrate Eid by the Ocean"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_eid_answer.jpg" alt="Eid Maldives Campaign"></div>
+                    <div class="portfolio-item fade-in-up" data-category="ov-holidays"><img
+                            src="images/ovh_visit_dark.jpg" alt="Visit OV Holidays"></div>
 
-                <!-- University of Colombo Muslim Majlis Works -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">University of Colombo Muslim Majlis Works</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/abu_bakr_post.png"
-                                alt="Abu Bakr As-Siddiq Post"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/web_dev_recruitment.jpg"
-                                alt="Web Dev Team Recruitment"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/level_up_seminar.jpg"
-                                alt="Level Up Seminar"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/HIJRI 1447.jpg" alt="Hijri 1447">
-                        </div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/Independence day1.jpg"
-                                alt="Independence Day"></div>
-                        <div class="portfolio-item fade-in-up"><img
-                                src="images/Majlis/Inter University Champ Tennis.jpg" alt="Inter University Tennis">
-                        </div>
-                        <div class="portfolio-item fade-in-up"><img
-                                src="images/Majlis/LOGO Competition Winner Post1.jpg" alt="Logo Competition Winner">
-                        </div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/Wrestling L1.jpg"
-                                alt="Wrestling Championship"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Majlis/Dr Asha.png"
-                                alt="Guest Lecture - Dr. Asha"></div>
-                    </div>
-                </div>
+                    <!-- OV Traveller Club Works -->
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_uga_chena.jpg" alt="Uga Chena Huts Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_gal_oya.jpg" alt="Gal Oya Lodge Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_santani.jpg" alt="Santani Wellness Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_jetwing.jpg" alt="Jetwing Vil Uyana Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_wild_coast.jpg" alt="Wild Coast Tented Lodge Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_joali_being.jpg" alt="Joali Being Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_gili_lankanfushi.jpg" alt="Gili Lankanfushi Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_six_senses.jpg" alt="Six Senses Laamu Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_soneva_fushi.jpg" alt="Soneva Fushi Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_bill_bensley.jpg" alt="Bill Bensley Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_christina_ong.jpg" alt="Christina Ong Poster"></div>
+                    <div class="portfolio-item fade-in-up" data-category="traveller-club"><img
+                            src="images/ov_sonu_shivdasani.jpg" alt="Sonu Shivdasani Poster"></div>
 
-                <!-- Freelance Works -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">Freelance Works</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/layora.jpg" alt="Layora Logo Design">
-                        </div>
-                        <div class="portfolio-item fade-in-up"><img src="images/crown_jewellery.png"
-                                alt="Crown Jewellery Logo Design"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Freelance/blackshot_web_services.jpg"
-                                alt="Blackshot Web Services"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Freelance/oneday_ecommerce.jpg"
-                                alt="One Day Digital eCommerce"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Freelance/times_tech_seminar.jpg"
-                                alt="Times Tech Project Seminar"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Freelance/study_sphere_admission.jpg"
-                                alt="Study Sphere Admission"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Freelance/times_tech_ict_class.jpg"
-                                alt="Times Tech ICT Class"></div>
-                    </div>
-                </div>
+                    <!-- University of Colombo Muslim Majlis Works -->
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/abu_bakr_post.png" alt="Abu Bakr As-Siddiq Post"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/web_dev_recruitment.jpg" alt="Web Dev Team Recruitment"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/level_up_seminar.jpg" alt="Level Up Seminar"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/HIJRI 1447.jpg" alt="Hijri 1447"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/Independence day1.jpg" alt="Independence Day"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/Inter University Champ Tennis.jpg" alt="Inter University Tennis"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/LOGO Competition Winner Post1.jpg" alt="Logo Competition Winner"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/Wrestling L1.jpg" alt="Wrestling Championship"></div>
+                    <div class="portfolio-item fade-in-up" data-category="muslim-majlis"><img
+                            src="images/Majlis/Dr Asha.png" alt="Guest Lecture - Dr. Asha"></div>
 
-                <!-- Viluxur Holidays Works -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">Viluxur Holidays Works</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/soneva_fushi_villa.jpg"
-                                alt="Soneva Fushi Villa Suite"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/best_villas_families.jpg"
-                                alt="Best Villas for Families"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/how_we_choose_handprints.jpg"
-                                alt="How We Choose - Family Focus"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/soneva_jani_retreat.jpg"
-                                alt="Soneva Jani Island Retreat"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/soneva_fushi_dining.jpg"
-                                alt="Soneva Fushi Experience"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/one_only_reethi_rah.jpg"
-                                alt="One & Only Reethi Rah"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/velaa_private_island.jpg"
-                                alt="Velaa Private Island"></div>
-                        <div class="portfolio-item fade-in-up"><img
-                                src="images/Viluxur/four_seasons_landaa_oceanfront.jpg"
-                                alt="Four Seasons Landaa Giraavaru - Oceanfront"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/waldorf_astoria_ithaafushi.jpg"
-                                alt="Waldorf Astoria Ithaafushi"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/four_seasons_landaa_pool.jpg"
-                                alt="Four Seasons Landaa - Pool View"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/one_only_reethi_rah_3.jpg"
-                                alt="One & Only Reethi Rah - Residence"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/top_5_family_resorts.jpg"
-                                alt="Top 5 Family Friendly Resorts"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Viluxur/big_five_lenses.jpg"
-                                alt="The Big Five Lenses"></div>
-                    </div>
-                </div>
+                    <!-- Freelance Works -->
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img src="images/layora.jpg"
+                            alt="Layora Logo Design"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/crown_jewellery.png" alt="Crown Jewellery Logo Design"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/Freelance/blackshot_web_services.jpg" alt="Blackshot Web Services"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/Freelance/oneday_ecommerce.jpg" alt="One Day Digital eCommerce"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/Freelance/times_tech_seminar.jpg" alt="Times Tech Project Seminar"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/Freelance/study_sphere_admission.jpg" alt="Study Sphere Admission"></div>
+                    <div class="portfolio-item fade-in-up" data-category="freelance"><img
+                            src="images/Freelance/times_tech_ict_class.jpg" alt="Times Tech ICT Class"></div>
 
-                <!-- Photographs -->
-                <div class="portfolio-category">
-                    <h3 class="category-title fade-in-up">Photographs</h3>
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/train_station.jpg"
-                                alt="Train Station Vibes"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/skyscrapers_nature.jpg"
-                                alt="Urban Nature"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/monkey_portrait.jpg"
-                                alt="Wildlife Portrait"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/beach_coconut.jpg"
-                                alt="Tropical Serenity"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/red_mosque.jpg"
-                                alt="The Red Mosque"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/cat_portrait.jpg"
-                                alt="Cat Portrait"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/yellow_flower_macro.jpg"
-                                alt="Nature Macro"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/city_road_building.jpg"
-                                alt="City Perspectives"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/dragonfly_macro.jpg"
-                                alt="Dragonfly Macro"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/night_street_bw.jpg"
-                                alt="Night Street Mood"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_1.jpg"
-                                alt="Photography 1"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_2.jpg"
-                                alt="Photography 2"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_3.jpg"
-                                alt="Photography 3"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_4.jpg"
-                                alt="Photography 4"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_5.jpg"
-                                alt="Photography 5"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/photo_6.jpg"
-                                alt="Photography 6"></div>
-                        <div class="portfolio-item fade-in-up"><img src="images/Photography/red_mosque_architecture.jpg"
-                                alt="Red Mosque Architecture"></div>
+                    <!-- Viluxur Holidays Works -->
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/soneva_fushi_villa.jpg" alt="Soneva Fushi Villa Suite"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/best_villas_families.jpg" alt="Best Villas for Families"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/how_we_choose_handprints.jpg" alt="How We Choose - Family Focus"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/soneva_jani_retreat.jpg" alt="Soneva Jani Island Retreat"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/soneva_fushi_dining.jpg" alt="Soneva Fushi Experience"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/one_only_reethi_rah.jpg" alt="One & Only Reethi Rah"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/velaa_private_island.jpg" alt="Velaa Private Island"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/four_seasons_landaa_oceanfront.jpg"
+                            alt="Four Seasons Landaa Giraavaru - Oceanfront"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/waldorf_astoria_ithaafushi.jpg" alt="Waldorf Astoria Ithaafushi"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/four_seasons_landaa_pool.jpg" alt="Four Seasons Landaa - Pool View">
                     </div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/one_only_reethi_rah_3.jpg" alt="One & Only Reethi Rah - Residence">
+                    </div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/top_5_family_resorts.jpg" alt="Top 5 Family Friendly Resorts"></div>
+                    <div class="portfolio-item fade-in-up" data-category="viluxur"><img
+                            src="images/Viluxur/big_five_lenses.jpg" alt="The Big Five Lenses"></div>
+
+                    <!-- Photographs -->
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/train_station.jpg" alt="Train Station Vibes"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/skyscrapers_nature.jpg" alt="Urban Nature"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/monkey_portrait.jpg" alt="Wildlife Portrait"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/beach_coconut.jpg" alt="Tropical Serenity"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/red_mosque.jpg" alt="The Red Mosque"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/cat_portrait.jpg" alt="Cat Portrait"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/yellow_flower_macro.jpg" alt="Nature Macro"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/city_road_building.jpg" alt="City Perspectives"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/dragonfly_macro.jpg" alt="Dragonfly Macro"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/night_street_bw.jpg" alt="Night Street Mood"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_1.jpg" alt="Photography 1"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_2.jpg" alt="Photography 2"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_3.jpg" alt="Photography 3"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_4.jpg" alt="Photography 4"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_5.jpg" alt="Photography 5"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/photo_6.jpg" alt="Photography 6"></div>
+                    <div class="portfolio-item fade-in-up" data-category="photography"><img
+                            src="images/Photography/red_mosque_architecture.jpg" alt="Red Mosque Architecture"></div>
                 </div>
             </div>
         </section>
