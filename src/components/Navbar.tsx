@@ -18,7 +18,7 @@ export default function Navbar() {
           href="/" 
           className="text-text-primary text-[13px] tracking-[2px] font-semibold hover:text-gold transition-colors"
         >
-          MM
+          Mohammed Muaaz
         </Link>
         <div className="hidden md:flex items-center gap-8">
           {["About", "Work", "Process", "Contact"].map((item) => (
