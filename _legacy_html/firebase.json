@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.zip",
+      "HOW_TO_PUBLISH.txt",
+      "HOW_TO_DEPLOY_FIREBASE.txt"
+    ]
+  }
+}
