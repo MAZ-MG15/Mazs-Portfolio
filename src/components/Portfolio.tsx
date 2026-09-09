@@ -137,12 +137,15 @@ export default function Portfolio() {
           {visibleProjects.map((project, index) => (
             <motion.div 
               key={project.id}
+              layout
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: (index % 10) * 0.05, ease: [0.21, 0.47, 0.32, 0.98] }}
               onClick={() => setSelectedImage(project.image)}
-              className="cursor-pointer group relative aspect-[4/3] rounded-lg overflow-hidden border border-border-subtle bg-gradient-to-br from-white/5 to-transparent transition-all duration-500 hover:border-gold hover:scale-[1.02]"
+              className="cursor-pointer group relative aspect-[4/3] rounded-lg overflow-hidden border border-border-subtle bg-gradient-to-br from-white/5 to-transparent transition-colors duration-500 hover:border-gold"
             >
               <Image 
                 src={project.image} 
@@ -154,14 +157,14 @@ export default function Portfolio() {
               />
               
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
+              <motion.div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
                 <span className="text-gold text-[12px] uppercase tracking-[2px] mb-2 font-medium">
                   {project.category}
                 </span>
                 <h3 className="text-white text-[18px] font-semibold tracking-wide">
                   {project.title}
                 </h3>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
