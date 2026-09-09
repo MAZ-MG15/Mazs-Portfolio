@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 type CaseStudy = {
   id: string;
@@ -87,12 +88,18 @@ export default function CaseStudies() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {caseStudies.map((caseStudy) => (
-            <button
+          {caseStudies.map((caseStudy, index) => (
+            <motion.button
               key={caseStudy.id}
               type="button"
               onClick={() => setSelectedCaseStudy(caseStudy)}
-              className="group text-left border border-border-subtle rounded-lg overflow-hidden bg-background-secondary transition-all duration-500 hover:border-gold hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(212,175,55,0.08)]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -8 }}
+              whileTap={{ scale: 0.99 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, delay: index * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="group text-left border border-border-subtle rounded-lg overflow-hidden bg-background-secondary transition-colors duration-500 hover:border-gold hover:shadow-[0_16px_50px_rgba(212,175,55,0.08)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-border-subtle">
                 <Image
@@ -119,7 +126,7 @@ export default function CaseStudies() {
                   </span>
                 </div>
               </div>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
