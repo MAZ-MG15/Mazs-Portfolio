@@ -1,4 +1,7 @@
+"use client";
+
 import { Palette, Smartphone, Video } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function CoreExpertise() {
   const expertise = [
@@ -24,9 +27,14 @@ export default function CoreExpertise() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {expertise.map((item, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="p-[30px] border border-border-subtle bg-white/2 rounded-lg transition-all duration-300 hover:border-gold hover:bg-gold/5 hover:-translate-y-1 group"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: index * 0.12, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="p-[30px] border border-border-subtle bg-white/2 rounded-lg transition-colors duration-300 hover:border-gold hover:bg-gold/5 group"
             >
               <div className="transition-transform duration-300 group-hover:scale-110 origin-left">
                 {item.icon}
@@ -37,7 +45,7 @@ export default function CoreExpertise() {
               <p className="text-[14px] leading-[1.7] text-text-secondary">
                 {item.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

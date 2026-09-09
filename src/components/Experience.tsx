@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   const experiences = [
@@ -54,9 +57,14 @@ export default function Experience() {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {experiences.map((exp, index) => (
-            <div 
+            <motion.div
               key={index}
-              className="group p-8 md:p-10 border border-border-subtle bg-white/5 backdrop-blur-sm rounded-lg transition-all duration-300 hover:border-gold hover:bg-gold/5 hover:-translate-y-1 hover:shadow-2xl"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: index * 0.14, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="group p-8 md:p-10 border border-border-subtle bg-white/5 backdrop-blur-sm rounded-lg transition-colors duration-300 hover:border-gold hover:bg-gold/5 hover:shadow-2xl"
             >
               <div className="mb-6">
                 <h3 className="text-[16px] font-bold text-text-primary tracking-[1px] uppercase mb-1">
@@ -106,7 +114,7 @@ export default function Experience() {
                   {exp.linkText}
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
