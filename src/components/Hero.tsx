@@ -1,16 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 
 export default function Hero() {
+  const prefersReducedMotion = useReducedMotion();
+  const pointerX = useMotionValue(0);
+  const pointerY = useMotionValue(0);
+  const smoothX = useSpring(pointerX, { stiffness: 120, damping: 18, mass: 0.6 });
+  const smoothY = useSpring(pointerY, { stiffness: 120, damping: 18, mass: 0.6 });
+  const collageRotateX = useTransform(smoothY, [-0.5, 0.5], [3, -3]);
+  const collageRotateY = useTransform(smoothX, [-0.5, 0.5], [-4, 4]);
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-background-secondary/50 via-background to-background pointer-events-none" />
       <motion.div
         aria-hidden="true"
         className="absolute -right-40 top-24 h-[420px] w-[420px] rounded-full border border-gold/10"
-        animate={{ rotate: 360, scale: [1, 1.05, 1] }}
+        animate={prefersReducedMotion ? { rotate: 0, scale: 1 } : { rotate: 360, scale: [1, 1.05, 1] }}
         transition={{ rotate: { duration: 40, repeat: Infinity, ease: "linear" }, scale: { duration: 8, repeat: Infinity, ease: "easeInOut" } }}
       />
 
@@ -70,17 +78,31 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[400px] md:min-h-[520px] flex items-center justify-center" aria-label="Selected project visuals">
+        <motion.div
+          className="relative min-h-[400px] md:min-h-[520px] flex items-center justify-center"
+          aria-label="Selected project visuals"
+          style={{ rotateX: collageRotateX, rotateY: collageRotateY, transformPerspective: 1200, transformStyle: "preserve-3d" }}
+          onPointerMove={(event) => {
+            if (prefersReducedMotion) return;
+            const bounds = event.currentTarget.getBoundingClientRect();
+            pointerX.set((event.clientX - bounds.left) / bounds.width - 0.5);
+            pointerY.set((event.clientY - bounds.top) / bounds.height - 0.5);
+          }}
+          onPointerLeave={() => {
+            pointerX.set(0);
+            pointerY.set(0);
+          }}
+        >
           <motion.div
             aria-hidden="true"
             className="absolute w-[72%] aspect-square rounded-full border border-gold/20"
-            animate={{ rotate: -360 }}
+            animate={prefersReducedMotion ? { rotate: 0 } : { rotate: -360 }}
             transition={{ duration: 55, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
             className="absolute left-[8%] top-[16%] w-[47%] aspect-[4/5] overflow-hidden rounded-lg border border-white/20 shadow-2xl shadow-black/30 rotate-[-8deg]"
-            initial={{ opacity: 0, y: 28, rotate: -14 }}
-            animate={{ opacity: 1, y: [0, -10, 0], rotate: -8 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 28, rotate: -14 }}
+            animate={prefersReducedMotion ? { opacity: 1, y: 0, rotate: -8 } : { opacity: 1, y: [0, -10, 0], rotate: -8 }}
             transition={{ opacity: { duration: 0.8, delay: 0.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" }, rotate: { duration: 0.8, delay: 0.2 } }}
           >
             <Image src="/images/ovh_soneva_fushi.jpg" alt="Luxury hospitality campaign visual" fill priority sizes="(max-width: 768px) 45vw, 25vw" className="object-cover" />
@@ -88,8 +110,8 @@ export default function Hero() {
           </motion.div>
           <motion.div
             className="absolute right-[7%] top-[8%] w-[42%] aspect-[4/5] overflow-hidden rounded-lg border border-white/20 shadow-2xl shadow-black/30 rotate-[8deg]"
-            initial={{ opacity: 0, y: 22, rotate: 14 }}
-            animate={{ opacity: 1, y: [0, 12, 0], rotate: 8 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 22, rotate: 14 }}
+            animate={prefersReducedMotion ? { opacity: 1, y: 0, rotate: 8 } : { opacity: 1, y: [0, 12, 0], rotate: 8 }}
             transition={{ opacity: { duration: 0.8, delay: 0.35 }, y: { duration: 7, repeat: Infinity, ease: "easeInOut" }, rotate: { duration: 0.8, delay: 0.35 } }}
           >
             <Image src="/images/Majlis/LOGO Competition Winner Post1.jpg" alt="Student organisation identity design" fill sizes="(max-width: 768px) 42vw, 23vw" className="object-cover" />
@@ -97,14 +119,15 @@ export default function Hero() {
           </motion.div>
           <motion.div
             className="absolute bottom-[9%] left-[25%] w-[42%] aspect-[4/3] overflow-hidden rounded-lg border-2 border-gold/70 shadow-2xl shadow-black/40 rotate-[3deg]"
-            initial={{ opacity: 0, y: 35, scale: 0.94 }}
-            animate={{ opacity: 1, y: [0, -7, 0], scale: 1 }}
+            initial={prefersReducedMotion ? false : { opacity: 0, y: 35, scale: 0.94 }}
+            animate={prefersReducedMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 1, y: [0, -7, 0], scale: 1 }}
             transition={{ opacity: { duration: 0.8, delay: 0.5 }, y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" }, scale: { duration: 0.8, delay: 0.5 } }}
           >
             <Image src="/images/layora.jpg" alt="Freelance brand identity design" fill sizes="(max-width: 768px) 42vw, 23vw" className="object-cover" />
           </motion.div>
+          <div className="absolute left-2 bottom-0 text-[10px] uppercase tracking-[2px] text-gold/80">Selected projects</div>
           <p className="absolute bottom-0 right-2 text-[10px] uppercase tracking-[2px] text-text-secondary">Identity · Digital · Motion</p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
