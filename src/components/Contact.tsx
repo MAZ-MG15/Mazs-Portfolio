@@ -1,3 +1,5 @@
+import { ExternalLink, Mail, MessageCircle } from "lucide-react";
+
 export default function Contact() {
   return (
     <section id="contact" className="py-20 md:py-32 bg-background-secondary border-t border-border-subtle relative z-20">
@@ -23,12 +25,31 @@ export default function Contact() {
           </span>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href="mailto:itzmazua@gmail.com"
-            className="inline-flex items-center justify-center bg-gold text-background px-10 py-4 text-[14px] uppercase tracking-[1px] font-semibold hover:bg-white transition-colors duration-300"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gold text-background px-8 py-4 text-[13px] uppercase tracking-[1px] font-semibold hover:bg-white transition-colors duration-300"
           >
+            <Mail className="w-4 h-4" />
             Start a Conversation
+          </a>
+          <a
+            href="https://wa.me/94778405184"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-border-subtle text-text-primary px-8 py-4 text-[13px] uppercase tracking-[1px] font-semibold hover:border-gold hover:text-gold transition-colors duration-300"
+          >
+            <MessageCircle className="w-4 h-4" />
+            WhatsApp
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mohammed-muaaz-1706a32a2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-border-subtle text-text-primary px-8 py-4 text-[13px] uppercase tracking-[1px] font-semibold hover:border-gold hover:text-gold transition-colors duration-300"
+          >
+            <ExternalLink className="w-4 h-4" />
+            LinkedIn
           </a>
         </div>
       </div>

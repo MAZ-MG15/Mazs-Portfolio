@@ -1,148 +1,186 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { X, ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
+
+type CaseStudy = {
+  id: string;
+  client: string;
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+  result: string;
+  challenge: string;
+  approach: string[];
+  impact: string;
+  tools: string[];
+};
+
+const caseStudies: CaseStudy[] = [
+  {
+    id: "ov-holidays",
+    client: "OV Holidays PTE LTD",
+    label: "Luxury hospitality · Brand & campaign",
+    title: "Making premium travel feel unmistakably premium",
+    description: "A visual system and campaign direction for a luxury travel company representing some of the Maldives' most desirable resorts.",
+    image: "/images/ovh_soneva_fushi.jpg",
+    result: "50+ campaign assets across 15+ resort brands",
+    challenge: "OV Holidays needed a more consistent, premium visual language across social campaigns, resort features, and sales collateral.",
+    approach: [
+      "Created a refined campaign system for print and digital touchpoints.",
+      "Designed high-engagement social carousels and resort storytelling.",
+      "Produced motion graphics and video edits for short-form platforms."
+    ],
+    impact: "A cohesive luxury aesthetic that made content easier to scale across multiple resort properties and channels.",
+    tools: ["Photoshop", "Illustrator", "After Effects", "Premiere Pro"]
+  },
+  {
+    id: "muslim-majlis",
+    client: "Muslim Majlis · University of Colombo",
+    label: "Community · Creative direction",
+    title: "Building a brand system for a growing student community",
+    description: "A complete identity and editorial system that helped a 500+ member organisation communicate with clarity and consistency.",
+    image: "/images/Majlis/LOGO Competition Winner Post1.jpg",
+    result: "5+ creatives mentored through a consistent editorial pipeline",
+    challenge: "The organisation needed an identity that could work across events, announcements, recruitment, and digital platforms while keeping a volunteer team aligned.",
+    approach: [
+      "Designed the official logo and a flexible visual identity system.",
+      "Established templates and quality standards for recurring communications.",
+      "Led and mentored a creative team across digital and print work."
+    ],
+    impact: "A repeatable creative workflow that improved consistency across the organisation's public-facing communications.",
+    tools: ["Illustrator", "Photoshop", "Figma", "Editorial design"]
+  }
+];
 
 export default function CaseStudies() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
 
-  // Close modal on Escape key press
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedCaseStudy(null);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Prevent background scrolling when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = selectedCaseStudy ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [selectedCaseStudy]);
 
   return (
     <section className="py-20 md:py-32 bg-background relative z-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2 className="text-[28px] md:text-[32px] font-semibold text-text-primary mb-16 border-l-4 border-gold pl-4">
-          Featured Case Study
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <p className="text-[12px] uppercase tracking-[2px] text-gold font-semibold mb-4">Selected thinking</p>
+            <h2 className="text-[28px] md:text-[32px] font-semibold text-text-primary">Featured case studies</h2>
+          </div>
+          <p className="text-[14px] text-text-secondary leading-[1.7] max-w-[360px] md:text-right">
+            A closer look at the strategy, systems, and outcomes behind the visuals.
+          </p>
+        </div>
 
-        {/* Clickable Card */}
-        <div 
-          onClick={() => setIsOpen(true)}
-          className="group cursor-pointer border border-border-subtle rounded-lg overflow-hidden bg-background-secondary flex flex-col md:flex-row transition-all duration-500 hover:border-gold hover:shadow-[0_10px_40px_rgba(212,175,55,0.05)]"
-        >
-          <div className="w-full md:w-1/2 relative min-h-[300px] border-b md:border-b-0 md:border-r border-border-subtle overflow-hidden">
-            <Image 
-              src="/images/ovh_soneva_fushi.jpg" 
-              alt="OV Holidays Campaign Strategy" 
-              fill
-              loading="lazy"
-              className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
-            />
-          </div>
-          <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-              <div className="text-[12px] uppercase tracking-[2px] text-gold font-semibold mb-4">
-                Brand Strategy & Campaign
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {caseStudies.map((caseStudy) => (
+            <button
+              key={caseStudy.id}
+              type="button"
+              onClick={() => setSelectedCaseStudy(caseStudy)}
+              className="group text-left border border-border-subtle rounded-lg overflow-hidden bg-background-secondary transition-all duration-500 hover:border-gold hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(212,175,55,0.08)]"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden border-b border-border-subtle">
+                <Image
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  fill
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover opacity-85 transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <span className="absolute left-6 bottom-5 text-[11px] uppercase tracking-[1.5px] text-white/80">
+                  {caseStudy.client}
+                </span>
               </div>
-              <h3 className="text-[24px] md:text-[28px] font-semibold text-text-primary mb-6">
-                OV Holidays Campaign Strategy
-              </h3>
-              <p className="text-[14px] text-text-secondary leading-[1.8] mb-8 line-clamp-3">
-                Elevate the digital presence of OV Holidays to better resonate with ultra-high-net-worth individuals seeking bespoke luxury travel experiences in the Maldives.
-              </p>
-              <div className="inline-flex items-center gap-2 text-[14px] uppercase tracking-[1px] font-semibold text-gold group-hover:translate-x-2 transition-transform duration-300">
-                Read Case Study <ArrowRight className="w-4 h-4" />
+              <div className="p-7 md:p-8">
+                <p className="text-[11px] uppercase tracking-[1.5px] text-gold font-semibold mb-4">{caseStudy.label}</p>
+                <h3 className="text-[21px] md:text-[24px] font-semibold text-text-primary leading-[1.25] mb-4">{caseStudy.title}</h3>
+                <p className="text-[14px] text-text-secondary leading-[1.8] mb-6">{caseStudy.description}</p>
+                <div className="flex items-center justify-between gap-4 pt-5 border-t border-border-subtle">
+                  <span className="text-[12px] text-text-primary leading-[1.5]">{caseStudy.result}</span>
+                  <span className="inline-flex items-center gap-2 shrink-0 text-[12px] uppercase tracking-[1px] text-gold group-hover:translate-x-1 transition-transform">
+                    Explore <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Modal Overlay */}
-      {isOpen && (
-        <div 
+      {selectedCaseStudy && (
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm p-4 md:p-8"
-          onClick={() => setIsOpen(false)}
+          onClick={() => setSelectedCaseStudy(null)}
         >
-          <button 
+          <button
+            type="button"
             className="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-gold transition-colors z-[110]"
-            onClick={() => setIsOpen(false)}
+            onClick={() => setSelectedCaseStudy(null)}
+            aria-label="Close case study"
           >
             <X className="w-8 h-8" strokeWidth={1.5} />
           </button>
-          
-          <div 
-            className="relative w-full max-w-4xl max-h-[85vh] overflow-y-auto bg-background-secondary border border-border-subtle rounded-lg flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] custom-scrollbar"
-            onClick={(e) => e.stopPropagation()}
+
+          <div
+            className="relative w-full max-w-4xl max-h-[88vh] overflow-y-auto bg-background-secondary border border-border-subtle rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] custom-scrollbar"
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* Modal Header Image */}
-            <div className="w-full relative h-[300px] shrink-0 border-b border-border-subtle">
-              <Image 
-                src="/images/ovh_soneva_fushi.jpg" 
-                alt="OV Holidays Campaign Strategy" 
+            <div className="relative w-full h-[220px] md:h-[320px] border-b border-border-subtle">
+              <Image
+                src={selectedCaseStudy.image}
+                alt={selectedCaseStudy.title}
                 fill
-                loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 896px"
                 className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background-secondary to-transparent" />
             </div>
 
-            {/* Modal Content */}
-            <div className="p-8 md:p-12">
-              <div className="text-[12px] uppercase tracking-[2px] text-gold font-semibold mb-4">
-                Brand Strategy & Campaign
+            <div className="p-7 md:p-12">
+              <p className="text-[11px] uppercase tracking-[1.8px] text-gold font-semibold mb-4">{selectedCaseStudy.label}</p>
+              <h3 className="text-[28px] md:text-[38px] font-semibold text-text-primary leading-[1.15] mb-10">{selectedCaseStudy.title}</h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-9 md:gap-12">
+                <div>
+                  <h4 className="text-[12px] uppercase tracking-[1px] text-gold mb-3 font-semibold">The challenge</h4>
+                  <p className="text-[14px] text-text-secondary leading-[1.8]">{selectedCaseStudy.challenge}</p>
+                </div>
+                <div>
+                  <h4 className="text-[12px] uppercase tracking-[1px] text-gold mb-3 font-semibold">The outcome</h4>
+                  <p className="text-[14px] text-text-secondary leading-[1.8]">{selectedCaseStudy.impact}</p>
+                </div>
               </div>
-              <h3 className="text-[28px] md:text-[36px] font-semibold text-text-primary mb-12">
-                OV Holidays Campaign Strategy
-              </h3>
 
-              <div className="space-y-10">
-                <div>
-                  <h4 className="text-[16px] uppercase tracking-[1px] text-text-primary mb-3 font-semibold">The Challenge</h4>
-                  <p className="text-[15px] text-text-secondary leading-[1.8]">
-                    Elevate the digital presence of OV Holidays to better resonate with ultra-high-net-worth individuals seeking bespoke luxury travel experiences in the Maldives.
-                  </p>
-                </div>
+              <div className="mt-10 pt-8 border-t border-border-subtle">
+                <h4 className="text-[12px] uppercase tracking-[1px] text-gold mb-4 font-semibold">The approach</h4>
+                <ul className="list-disc pl-5 text-[14px] text-text-secondary space-y-3 marker:text-gold">
+                  {selectedCaseStudy.approach.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </div>
 
-                <div>
-                  <h4 className="text-[16px] uppercase tracking-[1px] text-text-primary mb-3 font-semibold">Design Approach</h4>
-                  <p className="text-[15px] text-text-secondary leading-[1.8] mb-4">
-                    A multi-phased approach focusing on visual storytelling:
-                  </p>
-                  <ul className="list-disc pl-5 text-[15px] text-text-secondary space-y-2 marker:text-gold">
-                    <li>Refined brand identity assets for print and digital.</li>
-                    <li>Designed high-engagement social media carousels.</li>
-                    <li>Produced motion graphics for Instagram Reels.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-[16px] uppercase tracking-[1px] text-text-primary mb-3 font-semibold">Results & Impact</h4>
-                  <p className="text-[15px] text-text-secondary leading-[1.8]">
-                    Increased brand visibility and engagement metrics across key social platforms, establishing a cohesive and premium aesthetic that aligns with luxury hospitality standards.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-[16px] uppercase tracking-[1px] text-text-primary mb-4 font-semibold">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-3">
-                    {["Photoshop", "Illustrator", "After Effects", "Premiere Pro"].map(tech => (
-                      <span key={tech} className="text-[13px] px-4 py-2 bg-white/5 border border-border-subtle rounded-md text-text-primary">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              <div className="mt-10 pt-8 border-t border-border-subtle">
+                <h4 className="text-[12px] uppercase tracking-[1px] text-gold mb-4 font-semibold">Tools & disciplines</h4>
+                <div className="flex flex-wrap gap-3">
+                  {selectedCaseStudy.tools.map((tool) => (
+                    <span key={tool} className="text-[12px] px-4 py-2 bg-white/5 border border-border-subtle rounded-md text-text-primary">{tool}</span>
+                  ))}
                 </div>
               </div>
             </div>

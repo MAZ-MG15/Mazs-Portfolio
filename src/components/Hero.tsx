@@ -28,6 +28,28 @@ export default function Hero() {
           >
             Get in Touch
           </a>
+          <a
+            href="/images/CV.pdf"
+            download
+            className="flex items-center justify-center px-4 py-3.5 text-[13px] uppercase tracking-[1px] font-semibold text-text-secondary hover:text-gold transition-colors"
+          >
+            Download CV
+          </a>
+        </div>
+
+        <div className="mt-16 grid grid-cols-3 gap-6 max-w-[540px] w-full border-t border-border-subtle pt-6">
+          <div>
+            <p className="text-[24px] md:text-[28px] font-semibold text-gold">4+</p>
+            <p className="mt-1 text-[10px] md:text-[11px] uppercase tracking-[1px] text-text-secondary">Years experience</p>
+          </div>
+          <div>
+            <p className="text-[24px] md:text-[28px] font-semibold text-gold">50+</p>
+            <p className="mt-1 text-[10px] md:text-[11px] uppercase tracking-[1px] text-text-secondary">Campaign assets</p>
+          </div>
+          <div>
+            <p className="text-[24px] md:text-[28px] font-semibold text-gold">15+</p>
+            <p className="mt-1 text-[10px] md:text-[11px] uppercase tracking-[1px] text-text-secondary">Luxury brands</p>
+          </div>
         </div>
       </div>
     </section>
